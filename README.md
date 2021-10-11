@@ -30,4 +30,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 ## Deploy on Netlify
 
 
-[![Deploy to netlify](https://www.netlify.com/img/deploy/button.svg)](https://github.com/stepzen-samples/stepzen-spacex-graphql.git)
+[![Deploy to netlify](https://www.netlify.com/img/deploy/button.svg)](https://github.com/stepzen-samples/custom-site-test.git)
