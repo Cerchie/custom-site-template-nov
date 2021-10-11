@@ -6,8 +6,10 @@ export default async function getData(req, res) {
     key[0].startsWith("NEXT_")
   );
   console.log("envVars", envVars);
-  const username = envVars[0][1];
-
+  const username_to_idx = Object.entries(process.env).filter((key) =>
+    key[0].startsWith("NEXT_DEVTO_USERNAME")
+  );
+  const username = username_to_idx[0][1];
   const nameIndex = envVars.findIndex(
     (val) => val[0] === "NEXT_DEVTO_USERNAME"
   );
@@ -72,8 +74,9 @@ export default async function getData(req, res) {
       }),
     }
   );
-  console.log("query", response.body.query);
-  console.log("variables", response.body.variables);
+  console.log("RESPONSE HERE", response);
+  console.log("BODY", response.body);
+  console.log("USERNAME", username);
   // .then((response) => response.json())
   // .then((data) => console.log("RESPOSE DATA FROM API", data))
   // .then((data) => data);
