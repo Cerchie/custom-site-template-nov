@@ -1,0 +1,5 @@
+[template.environment]
+
+NEXT_DEVTO_USERNAME = "add your case-sensitive devto username"
+NEXT_GITHUB_TOKEN = "your github token"
+NEXT_TWITTER_BEARER_TOKEN = "your twitter API bearer token"
