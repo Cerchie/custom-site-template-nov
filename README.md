@@ -31,3 +31,5 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 
 [![Deploy to netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/stepzen-samples/custom-site-test.git)
+
+This project is part of a template, following the pattern laid out by Cassidy Williams in her [article on hacking the deploy to Netlify button](https://css-tricks.com/hack-the-deploy-to-netlify-button-using-environment-variables-to-make-a-customizable-site-generator/#put-it-all-together). 
