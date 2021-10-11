@@ -72,6 +72,8 @@ export default async function getData(req, res) {
       }),
     }
   );
+  console.log("query", response.query);
+  console.log("variables", response.variables);
   // .then((response) => response.json())
   // .then((data) => console.log("RESPOSE DATA FROM API", data))
   // .then((data) => data);
