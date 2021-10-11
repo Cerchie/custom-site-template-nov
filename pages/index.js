@@ -78,7 +78,7 @@ export default function Home() {
               className={styles.card}
             >
               <h2>Pinned Tweet &rarr;</h2>
-              <p>No pinned tweet.</p>
+              <p>No pinned tweet, possible key error.</p>
             </a>
 
             <a href="#" className={styles.card}>
@@ -123,7 +123,7 @@ export default function Home() {
 
             <a href="https://nextjs.org/learn" className={styles.card}>
               <h2>Top Pinned Github Repos &rarr;</h2>
-              <p>No pinned repos to be found.</p>
+              <p>No pinned repos to be found, possible key error.</p>
             </a>
 
             <a
@@ -153,6 +153,9 @@ export default function Home() {
         <footer className={styles.footer}></footer>
       </div>
     );
+  }
+  if (data.data.data.devto_getArticles[0].user === undefined) {
+    return <div>No devto user found under that nme</div>;
   } else {
     return (
       <div className={styles.container}>

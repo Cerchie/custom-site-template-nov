@@ -1,3 +1,7 @@
+   
+[build]
+  command = "npm run build"
+
 [template.environment]
 
 NEXT_DEVTO_USERNAME = "add your case-sensitive devto username"
