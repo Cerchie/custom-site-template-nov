@@ -1,10 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 export default async function getData(req, res) {
+  console.log("env process", process.env);
   let envVars = Object.entries(process.env).filter((key) =>
     key[0].startsWith("NEXT_")
   );
-
+  console.log("envVars", envVars);
   const username = envVars[0][1];
 
   const nameIndex = envVars.findIndex(
@@ -17,7 +18,8 @@ export default async function getData(req, res) {
 
   let github_token = process.env.NEXT_GITHUB_TOKEN;
   let twitter_bearerToken = process.env.NEXT_TWITTER_BEARER_TOKEN;
-
+  console.log("github token", process.env.NEXT_GITHUB_TOKEN);
+  console.log("twitter token", process.env.NEXT_TWITTER_BEARER_TOKEN);
   const response = await fetch(
     "https://graphql1f.steprz.net/api/1fec739d90f6028c74a6f19855c34277/__graphql",
 
