@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import logo from "../public/light-blue.png";
 import styles from "../styles/Home.module.css";
 import useSWR from "swr";
 // NEED ERROR HANDLING FOR < 3 items HERE
@@ -33,7 +34,8 @@ export default function Home() {
         <main className={styles.main}>
           <h1 className={styles.title}>
             {" "}
-            <a href="https://stepzen.com/">STEPZEN</a> x NETLIFY
+            <Image src={logo} alt="StepZen logo" width="50" height="50" />
+            <a href="https://stepzen.com/"> {logo} STEPZEN</a> x NETLIFY
           </h1>
 
           <div className={styles.grid}>
@@ -108,6 +110,7 @@ export default function Home() {
         <main className={styles.main}>
           <h1 className={styles.title}>
             {" "}
+            <Image src={logo} alt="StepZen logo" width="100" height="50" />
             <a href="https://stepzen.com/">STEPZEN</a> x NETLIFY
           </h1>
 
@@ -166,6 +169,7 @@ export default function Home() {
         <main className={styles.main}>
           <h1 className={styles.title}>
             {" "}
+            <Image src={logo} alt="StepZen logo" width="50" height="50" />
             <a href="https://stepzen.com/">STEPZEN</a> x NETLIFY
           </h1>
 
