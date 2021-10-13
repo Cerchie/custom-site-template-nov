@@ -86,7 +86,7 @@ export default function Home() {
             </a>
 
             <a
-              href="https://github.com/vercel/next.js/tree/master/examples"
+              href={`https://twitter.com/${data.data.data.devto_getArticles[0].user.twitter_username}`}
               className={styles.card}
             >
               <h2>Pinned Tweet &rarr;</h2>
@@ -147,7 +147,7 @@ export default function Home() {
             </a>
 
             <a
-              href="https://github.com/vercel/next.js/tree/master/examples"
+              href={`https://twitter.com/${data.data.data.devto_getArticles[0].user.twitter_username}`}
               className={styles.card}
             >
               <h2>Pinned Tweet &rarr;</h2>
@@ -243,7 +243,7 @@ export default function Home() {
             </a>
 
             <a
-              href="https://github.com/vercel/next.js/tree/master/examples"
+              href={`https://twitter.com/${data.data.data.devto_getArticles[0].user.twitter_username}`}
               className={styles.card}
             >
               <h2>Pinned Tweet &rarr;</h2>
