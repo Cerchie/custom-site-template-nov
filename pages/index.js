@@ -1,9 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import logo from "../public/light-blue.png";
 import styles from "../styles/Home.module.css";
 import useSWR from "swr";
-// NEED ERROR HANDLING FOR < 3 items HERE
+
+// fetcher function to enable use of SWR
 const fetcher = async (url) => {
   const res = await fetch(url);
   const data = await res.json();
@@ -16,9 +18,14 @@ const fetcher = async (url) => {
 
 export default function Home() {
   const { data, error } = useSWR("/api/stepzen_fetch", fetcher);
+
   if (error) return <div>{error.message}</div>;
   if (!data) return <div>Loading...</div>;
-
+  console.log(
+    "FINDER:",
+    data.data.data.devto_getArticles[0].user.github_username
+  );
+  //page to render if tweet fetch goes awry
   if (
     data.data.data.devto_getArticles[0].user.twitter_details.pinned_tweet ===
     null
@@ -46,7 +53,10 @@ export default function Home() {
               <p> - {data.data.data.devto_getArticles[2].title} </p>
             </a>
 
-            <a href="https://nextjs.org/learn" className={styles.card}>
+            <a
+              href={`https://github.com/${data.data.data.devto_getArticles[0].user.github_username}`}
+              className={styles.card}
+            >
               <h2>Top Pinned Github Repos &rarr;</h2>
               <p>
                 Name:{" "}
@@ -95,6 +105,8 @@ export default function Home() {
         <footer className={styles.footer}></footer>
       </div>
     );
+
+    //page to render if github fetch goes awry
   } else if (
     data.data.data.devto_getArticles[0].user.github_details.pinnedItems.nodes[0]
       .name === null
@@ -122,7 +134,11 @@ export default function Home() {
               <p> - {data.data.data.devto_getArticles[2].title} </p>
             </a>
 
-            <a href="https://nextjs.org/learn" className={styles.card}>
+            <a
+              href={`https://github.com/${data.data.data.devto_getArticles[0].user.github_username}`}
+              passHref
+              className={styles.card}
+            >
               <h2>Top Pinned Github Repos &rarr;</h2>
               <p>No pinned repos to be found, possible key error.</p>
             </a>
@@ -155,8 +171,12 @@ export default function Home() {
       </div>
     );
   }
+
+  //page to render if devto fetch goes awry
   if (data.data.data.devto_getArticles[0].user === undefined) {
-    return <div>No devto user found under that nme</div>;
+    return <div>No devto user found under that name</div>;
+
+    //page to render when things go well
   } else {
     return (
       <div className={styles.container}>
@@ -175,13 +195,17 @@ export default function Home() {
 
           <div className={styles.grid}>
             <a href="https://nextjs.org/docs" className={styles.card}>
-              <h2>Top 3 articles &rarr;</h2>
+              <h2>Top 3 DEV.to articles &rarr;</h2>
               <p> - {data.data.data.devto_getArticles[0].title} </p>
               <p> - {data.data.data.devto_getArticles[1].title} </p>
               <p> - {data.data.data.devto_getArticles[2].title} </p>
             </a>
 
-            <a href="https://nextjs.org/learn" className={styles.card}>
+            <a
+              href={`https://github.com/${data.data.data.devto_getArticles[0].user.github_username}`}
+              passHref
+              className={styles.card}
+            >
               <h2>Top Pinned Github Repos &rarr;</h2>
               <p>
                 Name:{" "}
@@ -193,14 +217,17 @@ export default function Home() {
                 {
                   data.data.data.devto_getArticles[0].user.github_details
                     .pinnedItems.nodes[0].description
-                }
+                }{" "}
               </p>
               <p>
+                {" "}
                 Name:{" "}
                 {
                   data.data.data.devto_getArticles[0].user.github_details
                     .pinnedItems.nodes[1].name
                 }
+              </p>
+              <p>
                 Description:{" "}
                 {
                   data.data.data.devto_getArticles[0].user.github_details
