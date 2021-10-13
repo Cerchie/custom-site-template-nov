@@ -1,11 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 export default async function getData(req, res) {
-  console.log("env process", process.env);
+  // Environment variable massaging. Much of the logic borrowed from https://github.com/cassidoo/link-in-bio-template
   let envVars = Object.entries(process.env).filter((key) =>
     key[0].startsWith("NEXT_")
   );
-  console.log("envVars", envVars);
+
   const username_to_idx = Object.entries(process.env).filter((key) =>
     key[0].startsWith("NEXT_DEVTO_USERNAME")
   );
@@ -20,6 +20,8 @@ export default async function getData(req, res) {
 
   let github_token = process.env.NEXT_GITHUB_TOKEN;
   let twitter_bearerToken = process.env.NEXT_TWITTER_BEARER_TOKEN;
+
+  //Here we retrieve data from 3 different sources with one query, woven together in a StepZen layer accessible at this url.
   const response = await fetch(
     "https://graphql1f.steprz.net/api/1fec739d90f6028c74a6f19855c34277/__graphql",
 
