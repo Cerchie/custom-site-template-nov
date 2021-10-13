@@ -20,8 +20,6 @@ export default async function getData(req, res) {
 
   let github_token = process.env.NEXT_GITHUB_TOKEN;
   let twitter_bearerToken = process.env.NEXT_TWITTER_BEARER_TOKEN;
-  console.log("github token", process.env.NEXT_GITHUB_TOKEN);
-  console.log("twitter token", process.env.NEXT_TWITTER_BEARER_TOKEN);
   const response = await fetch(
     "https://graphql1f.steprz.net/api/1fec739d90f6028c74a6f19855c34277/__graphql",
 
@@ -74,13 +72,8 @@ export default async function getData(req, res) {
       }),
     }
   );
-  console.log("RESPONSE HERE", response);
-  console.log("BODY", response.body);
-  console.log("USERNAME", username);
-  // .then((response) => response.json())
-  // .then((data) => console.log("RESPOSE DATA FROM API", data))
-  // .then((data) => data);
+
   let data = await response.json();
-  console.log("data in api", data);
+
   return res.status(200).json({ data: data });
 }
