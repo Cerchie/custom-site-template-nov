@@ -9,7 +9,6 @@ import useSWR from "swr";
 const fetcher = async (url) => {
   const res = await fetch(url);
   const data = await res.json();
-  console.log("res in fetcher", res);
   if (res.status !== 200) {
     throw new Error(data.message);
   }
@@ -22,7 +21,6 @@ export default function Home() {
   if (error) return <div>{error.message}</div>;
   if (!data) return <div>Loading...</div>;
 
-  console.log("FINDER:", data.data.data.devto_getArticles[0].user.username);
   //page to render if tweet fetch goes awry
   if (
     data.data.data.devto_getArticles[0].user.twitter_details.pinned_tweet ===
