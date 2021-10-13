@@ -21,10 +21,8 @@ export default function Home() {
 
   if (error) return <div>{error.message}</div>;
   if (!data) return <div>Loading...</div>;
-  console.log(
-    "FINDER:",
-    data.data.data.devto_getArticles[0].user.github_username
-  );
+
+  console.log("FINDER:", data.data.data.devto_getArticles[0].user.username);
   //page to render if tweet fetch goes awry
   if (
     data.data.data.devto_getArticles[0].user.twitter_details.pinned_tweet ===
@@ -46,8 +44,11 @@ export default function Home() {
           </h1>
 
           <div className={styles.grid}>
-            <a href="https://nextjs.org/docs" className={styles.card}>
-              <h2>Top 3 articles &rarr;</h2>
+            <a
+              href={`https://dev.to/${data.data.data.devto_getArticles[0].user.username}`}
+              className={styles.card}
+            >
+              <h2>Top 3 DEV.to articles &rarr;</h2>
               <p> - {data.data.data.devto_getArticles[0].title} </p>
               <p> - {data.data.data.devto_getArticles[1].title} </p>
               <p> - {data.data.data.devto_getArticles[2].title} </p>
@@ -125,10 +126,12 @@ export default function Home() {
             <Image src={logo} alt="StepZen logo" width="100" height="50" />
             <a href="https://stepzen.com/">STEPZEN</a> x NETLIFY
           </h1>
-
           <div className={styles.grid}>
-            <a href="https://nextjs.org/docs" className={styles.card}>
-              <h2>Top 3 articles &rarr;</h2>
+            <a
+              href={`https://dev.to/${data.data.data.devto_getArticles[0].user.username}`}
+              className={styles.card}
+            >
+              <h2>Top 3 DEV.to articles &rarr;</h2>
               <p> - {data.data.data.devto_getArticles[0].title} </p>
               <p> - {data.data.data.devto_getArticles[1].title} </p>
               <p> - {data.data.data.devto_getArticles[2].title} </p>
@@ -194,7 +197,10 @@ export default function Home() {
           </h1>
 
           <div className={styles.grid}>
-            <a href="https://nextjs.org/docs" className={styles.card}>
+            <a
+              href={`https://dev.to/${data.data.data.devto_getArticles[0].user.username}`}
+              className={styles.card}
+            >
               <h2>Top 3 DEV.to articles &rarr;</h2>
               <p> - {data.data.data.devto_getArticles[0].title} </p>
               <p> - {data.data.data.devto_getArticles[1].title} </p>

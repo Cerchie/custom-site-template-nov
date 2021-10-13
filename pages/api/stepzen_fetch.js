@@ -21,7 +21,7 @@ export default async function getData(req, res) {
   let github_token = process.env.NEXT_GITHUB_TOKEN;
   let twitter_bearerToken = process.env.NEXT_TWITTER_BEARER_TOKEN;
 
-  //Here we retrieve data from 3 different sources with one query, woven together in a StepZen layer accessible at this url.
+  //Here we retrieve data from 3 different sources with one query, woven together in a StepZen layer accessible at
   const response = await fetch(
     "https://graphql1f.steprz.net/api/1fec739d90f6028c74a6f19855c34277/__graphql",
 
@@ -61,7 +61,8 @@ export default async function getData(req, res) {
               }
             }
             github_username
-        
+            username
+            twitter_username
           }
         }
       } 
