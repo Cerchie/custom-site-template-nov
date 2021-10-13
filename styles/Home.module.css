@@ -45,7 +45,8 @@
 }
 
 .title {
-  margin: 0;
+  margin-top: 10rem;
+  padding: 2rem;
   line-height: 1.15;
   font-size: 2rem;
 }
