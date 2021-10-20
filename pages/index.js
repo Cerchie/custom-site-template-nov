@@ -191,7 +191,7 @@ export default function Home() {
         <main className={styles.main}>
           <h1 className={styles.title}>
             {" "}
-            {data.data.data.devto_getArticles[0].user.username}'s custom
+            {data.data.data.devto_getArticles[0].user.username}&#39;s custom
             portfolio
             <p className={styles.sub_headline}>
               powered by <a href="https://stepzen.com/">StepZen</a> and{" "}
