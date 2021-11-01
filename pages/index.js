@@ -193,10 +193,6 @@ export default function Home() {
             {" "}
             {data.data.data.devto_getArticles[0].user.username}&#39;s custom
             portfolio
-            <p className={styles.sub_headline}>
-              powered by <a href="https://stepzen.com/">StepZen</a> and{" "}
-              <a href="https://www.netlify.com/">Netlify </a>
-            </p>
           </h1>
 
           <div className={styles.grid}>
@@ -259,6 +255,10 @@ export default function Home() {
               </p>
             </a>
           </div>
+          <p className={styles.sub_headline}>
+            powered by <a href="https://stepzen.com/">StepZen</a> and{" "}
+            <a href="https://www.netlify.com/">Netlify </a>
+          </p>
         </main>
 
         <footer className={styles.footer}></footer>
